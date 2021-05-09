@@ -1,0 +1,36 @@
+{{#if noAccounts}}
+    No Accounts Liked
+    <a href="/link-accounts">Link Account</a>
+{{/if}}
+
+{{#if Accounts}}
+    <main>
+    <div class="container">     
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th>Bank Name</th>
+        <th>Account Number</th>
+      </tr>
+    </thead>
+    {{#each bank}}
+        <tbody>
+            <tr>
+                <td>{{BankName}}</td>
+                <td>{{BankAccountNumber}}</td>
+            </tr>
+        </tbody>
+    {{/each}}
+<form action='/add-add-money' method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Bank Account Number</label>
+    <input type="text" class="form-control" id="BankAccountNumber" name="BankAccountNumber" aria-describedby="emailHelp" placeholder="Enter Bank Account Number">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Amount</label>
+    <input type="number" class="form-control" id="Amount" name="Amount" placeholder="Amount">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Money</button>
+</form>
+</main>
+{{/if}}

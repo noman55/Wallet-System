@@ -1,0 +1,116 @@
+{{#if login}}
+<main>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        <ul class="navbar-nav ml-auto">
+           <li class="nav-item active">
+              <span class="navbar-text">
+                Welcome {{userEmail}}
+              </span>
+            </li>
+        </ul>
+    </div>
+      <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
+        <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{{#if notVerified}}
+<div class="card text-center">
+  <div class="card-header">
+    Welcome and Now you can quickly create your wallet account
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">You Don't have wallet </h5>
+    <p class="card-text">Create the Wallet Now.</p>
+    <form action='/verify-number' method="POST">
+        <input type="tel" placeholder="918111111111", name="phoneNumber", id="phoneNumber">
+        <button type="submit" class="btn-primary">Verify Number</button>
+    </form>
+  </div>
+  <div class="card-footer text-muted">
+   Have a safe and secure transaction
+  </div>
+</div>
+{{/if}}
+{{#if verify}}
+<div class="card text-center">
+<div class="card-header">
+    Welcome To Your Wallet
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Below is your Wallet </h5>
+    <p class="card-text">Phone Number: {{number}}</p>
+    {{#if checkBalance}}
+    <p class="card-text">Amount: {{amount}}</p>
+    {{/if}}
+  </div>
+  <div class="card-footer text-muted">
+   Have a safe and secure transaction
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Add Money To Wallet</h5>
+        <p class="card-text">Now, you can add money to your wallet. Use this for transactions</p>
+        <a href="/add-money" class="btn btn-primary">Add Money</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Debit Money From Wallet</h5>
+        <p class="card-text">You can debit your money from wallet any time you like.</p>
+        {{#if lessThanMinValue}}
+        <b>Debit Money</b>
+        {{else}}
+        <a href="/debit-amount" class="btn btn-primary">Debit Money</a>
+        {{/if}}
+        
+      </div>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Check Your Balance In Wallet</h5>
+        <p class="card-text">You can now instantly check your wallet balance.</p>
+        <a href="/check-balance" class="btn btn-primary">Check Balance</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Link Bank Account To Your Wallet</h5>
+        <p class="card-text">Now, you can link multiple bank accounts to your wallet</p>
+        <a href="/link-accounts" class="btn btn-primary">Link Account</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Transactions</h5>
+        <p class="card-text">Know your wallet transactions. Now, get the to know all type of transactions</p>
+        <a href="/transactions" class="btn btn-primary">Transactions</a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+
+{{/if}}
+</main>
+{{/if}}

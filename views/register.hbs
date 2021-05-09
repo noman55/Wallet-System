@@ -1,0 +1,34 @@
+<main>
+<form action='/register' method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter Name">
+    {{#if errorN}}
+        <span style="color:red"> {{msg}}</span>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+    {{#if errorE}}
+        <span style="color:red"> {{msg}}</span>
+    {{/if}}
+    {{#if error}}
+        <span style="color:red"> {{msg}}</span>
+    {{/if}}
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+       {{#if errorP}}
+        <span style="color:red"> {{msg}}</span>
+       {{/if}}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+    {{#if errorG}}
+        <span style="color:red"> {{msg}}</span>
+       {{/if}}
+</form>
+</main>
